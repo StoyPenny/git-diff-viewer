@@ -1,16 +1,43 @@
-# React + Vite
+# Git Diff Viewer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A clean, GitHub-style diff viewer built with React and Tailwind CSS. Upload `.diff`, `.patch`, or `.txt` files to visualize git changes with syntax highlighting and side-by-side comparison.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔒 100% client-side processing (no data sent to servers)
+- 📁 Drag & drop or file upload support
+- 🔄 Unified and split view modes
+- 🌓 Dark mode support
+- 📊 File statistics (additions/deletions)
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+# Install dependencies
+npm install
 
-## Expanding the ESLint configuration
+# Start development server
+npm run dev
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Build for production
+npm run build
+```
+
+## Usage
+
+1. Generate a diff file: `git diff > changes.diff`
+2. Open the application
+3. Drag and drop your diff file or click to select
+4. Toggle between unified and split views
+5. Collapse/expand individual files
+
+## Tech Stack
+
+- React 19
+- Vite
+- Tailwind CSS
+- Lucide React (icons)
+
+## License
+
+MIT
