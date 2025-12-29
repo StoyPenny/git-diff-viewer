@@ -1,5 +1,5 @@
-import React, { useState, useCallback, useMemo } from 'react';
-import { Upload, FileCode, Split, LayoutList, X, ChevronDown, ChevronRight, Copy, Check, Moon, Sun } from 'lucide-react';
+import React, { useState } from 'react';
+import { Upload, FileCode, Split, LayoutList, X, ChevronDown, ChevronRight, Moon, Sun } from 'lucide-react';
 
 /**
  * A robust, single-file React application to view Git Diffs.
@@ -103,16 +103,13 @@ const DiffLine = ({ type, content, oldNum, newNum, viewMode }) => {
   // Styles based on GitHub's variable system (approximated with Tailwind)
   let bgClass = '';
   let textClass = 'text-gray-800 dark:text-gray-300';
-  let prefix = ' ';
 
   if (type === 'add') {
     bgClass = 'bg-green-100 dark:bg-green-900/30';
     textClass = 'text-gray-900 dark:text-gray-100';
-    prefix = '+';
   } else if (type === 'delete') {
     bgClass = 'bg-red-100 dark:bg-red-900/30';
     textClass = 'text-gray-900 dark:text-gray-100';
-    prefix = '-';
   } else if (type === 'hunk-header') {
     bgClass = 'bg-blue-50 dark:bg-[#111b29] text-gray-500';
     textClass = 'text-gray-500 dark:text-gray-400';
@@ -353,7 +350,6 @@ const FileViewer = ({ file, viewMode, isCollapsed, toggleCollapse }) => {
 // --- Main App Component ---
 
 export default function App() {
-  const [diffText, setDiffText] = useState('');
   const [parsedFiles, setParsedFiles] = useState([]);
   const [viewMode, setViewMode] = useState('split'); // 'unified' or 'split'
   const [isDragging, setIsDragging] = useState(false);
@@ -369,7 +365,6 @@ export default function App() {
     const reader = new FileReader();
     reader.onload = (e) => {
       const text = e.target.result;
-      setDiffText(text);
       const parsed = parseDiff(text);
       setParsedFiles(parsed);
     };
@@ -384,7 +379,6 @@ export default function App() {
   };
 
   const clearAll = () => {
-    setDiffText('');
     setParsedFiles([]);
     setCollapsedFiles({});
   };
