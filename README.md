@@ -2,6 +2,8 @@
 
 A clean, GitHub-style diff viewer built with React and Tailwind CSS. Upload `.diff`, `.patch`, or `.txt` files to visualize git changes with syntax highlighting and side-by-side comparison.
 
+<img width="1331" height="861" alt="image" src="https://github.com/user-attachments/assets/15091bb8-9e56-4c18-8188-8bcc95db1596" />
+
 ## Features
 
 - 🔒 100% client-side processing (no data sent to servers)
