@@ -14,6 +14,8 @@ A clean, GitHub-style diff viewer built with React and Tailwind CSS. Upload `.di
 
 ## Getting Started
 
+### Standard Development
+
 ```bash
 # Install dependencies
 npm install
@@ -23,6 +25,50 @@ npm run dev
 
 # Build for production
 npm run build
+```
+
+### Docker Development
+
+#### Prerequisites
+- Docker 20.10+
+- Docker Compose 2.0+
+
+#### Quick Start
+
+Start the development server:
+```bash
+docker compose up
+```
+
+Access at: `http://localhost:5561`
+
+#### Custom URLs (Tailscale/Network Access)
+
+1. Copy environment template:
+   ```bash
+   cp .env.example .env.local
+   ```
+
+2. Set your custom hostname:
+   ```bash
+   VITE_CUSTOM_HOST=myserver.tail08f20.ts.net
+   ```
+
+3. Restart:
+   ```bash
+   docker compose down && docker compose up
+   ```
+
+4. Access via custom URL:
+   ```
+   http://myserver.tail08f20.ts.net:5561
+   ```
+
+#### Rebuilding
+After dependency changes:
+```bash
+docker compose down
+docker compose up --build
 ```
 
 ## Usage
